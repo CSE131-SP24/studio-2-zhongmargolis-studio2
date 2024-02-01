@@ -8,13 +8,22 @@ public class Ruin {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.print("Starting Amount: ");
-		int startamount = scan.nextInt();
+		double startamount = scan.nextDouble();
 		
 		System.out.print("Win Probability: ");
-		int winchance = scan.nextInt();
+		double winchance = scan.nextDouble();
 		
 		System.out.print("Win Limit: ");
-		int winlimit = scan.nextInt();
+		double winlimit = scan.nextDouble();
+		
+		double toplay = 1;
+		double remainamount = startamount;
+		
+		while (remainamount > 0) {
+			//
+		}
+		
+		
 		
 		
 
