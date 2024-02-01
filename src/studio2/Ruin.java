@@ -16,15 +16,46 @@ public class Ruin {
 		System.out.print("Win Limit: ");
 		double winlimit = scan.nextDouble();
 		
-		double toplay = 1;
+		System.out.print("Days: ");
+		int simulations = scan.nextInt();
+		
 		double remainamount = startamount;
 		
-		while (remainamount > 0) {
-			//
+		int count = 0;
+		double predictruin = 0;
+		
+		for(int i = 0; i < simulations; i++) {
+
+			while (0 < remainamount && remainamount < winlimit) {
+				
+				if (Math.random() < winchance) {
+					remainamount = remainamount+1;
+				}
+				else {
+					remainamount = remainamount-1;
+				}
+				count++;
+			}
+			
+			if (remainamount == 0) {
+				System.out.println("Day " + i + ". Loss. " + count + " Games Played.");
+				predictruin++;
+			}
+			
+			if (remainamount == winlimit) {
+				System.out.println("Day " + i + ". Win. " + count + " Games Played.");
+			}
+			
+			count = 0;
+			remainamount = startamount;
 		}
 		
+		double a = (1-winchance)/winchance;
 		
+		double expectruin = (Math.pow(a, startamount) - Math.pow(a,  winlimit))/(1-Math.pow(a,  winlimit));
+		System.out.println(expectruin);
 		
+		System.out.println("Ruin Rate: " + (predictruin/simulations));
 		
 
 	}
